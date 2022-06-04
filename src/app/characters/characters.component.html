@@ -1,18 +1,33 @@
-<h2>Personas poke Api</h2>
-
-
-<div>
-     <div>
-         <img [src]="peronas.img" alt="">
-     </div>
-     <div>
-         <h3>
-
-         </h3>
-     </div>
-     <div>
-         <p>
-
-         </p>
-     </div>
+<div class="Container">
+    <h2 style="text-align: center; margin-top: 50px">PokeAPI</h2>
+    <br/>
+    <br/>
+    <p style="text-align: center;"> Pokedex: <input type="text" style="margin-left: 5px" [(ngModel)]="name"/>
+    <input value="Buscar" type="submit" style="margin-rigth: 10px;" (click)="buscarPokemon()"/>
+    </p>
+    <br/>
+    <div class="Container" style="text-align: center;">
+        <table class="table">
+            <thead>
+                <th scope="col">id</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Altura</th>
+                <th scope="col" >foto</th>
+            </thead>
+            <tbody>
+                <tr *ngIf="!found; else find;" scope="row">
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td></td>
+                </tr>
+                <ng-template #find>
+                <tr scope="row" x>
+                    <td *ngFor="let a of arr;">{{a}}</td>
+                    <td><img [src]="image"/></td>
+                </tr>
+                </ng-template>
+            </tbody>
+        </table>
+    </div>
 </div>
